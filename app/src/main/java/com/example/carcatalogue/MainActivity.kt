@@ -37,7 +37,8 @@ class MainActivity : ComponentActivity() {
                     Scaffold(
                         topBar = {
                             MainTopBar(title = topBarTitle.value, drawerState)
-                        }
+                        },
+
                     ) {
 
                     }

@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -38,7 +39,9 @@ fun DrawerMenu() {
         Image(
             painter = painterResource(id = R.drawable.menu_bg),
             contentDescription = "menu_bg",
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier
+                .fillMaxSize()
+                .alpha(0.7f),
             contentScale = ContentScale.Crop
         )
         Column(modifier = Modifier.fillMaxSize()) {
@@ -54,7 +57,7 @@ fun Header() {
         modifier = Modifier
             .fillMaxWidth()
             .height(170.dp)
-            .padding(10.dp),
+            .padding(13.dp),
         shape = RoundedCornerShape(13.dp),
         border = BorderStroke(1.dp, mycolor)
     ) {
@@ -91,9 +94,9 @@ fun Body() {
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(3.dp),
+                    .padding(start = 13.dp, end = 13.dp, top = 5.dp, bottom = 5.dp),
                 colors = CardDefaults.cardColors(
-                    containerColor = itembg
+                    containerColor = mycolor
                 ),
             ) {
                 Text(
@@ -105,7 +108,8 @@ fun Body() {
                         }
                         .padding(10.dp)
                         .wrapContentWidth(),
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White
                 )
             }
 

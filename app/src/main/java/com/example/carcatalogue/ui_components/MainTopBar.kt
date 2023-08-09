@@ -2,6 +2,7 @@ package com.example.carcatalogue.ui_components
 
 import androidx.compose.foundation.background
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -34,6 +35,13 @@ fun MainTopBar(title: String, drawerState: DrawerState) {
                 }
             }) {
                 Icon(imageVector = Icons.Default.Menu, contentDescription = "menu")
+            }
+        },
+        actions = {
+            IconButton(onClick = {
+
+            }) {
+                Icon(imageVector = Icons.Default.Favorite, contentDescription = "favourite")
             }
         }
     )
