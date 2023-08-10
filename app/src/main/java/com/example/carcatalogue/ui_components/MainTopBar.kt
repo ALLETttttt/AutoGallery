@@ -16,6 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import com.example.carcatalogue.ui.theme.mycolor
 import kotlinx.coroutines.launch
 
 
@@ -25,9 +27,13 @@ fun MainTopBar(title: String, drawerState: DrawerState) {
     val coroutine = rememberCoroutineScope()
     TopAppBar(
         title = {
-            Text(text = title)
+            Text(
+                text = title,
+                color = Color.White,
+                fontWeight = FontWeight.Bold
+                )
         },
-        colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = Color.White),
+        colors = TopAppBarDefaults.smallTopAppBarColors(containerColor = mycolor),
         navigationIcon = {
             IconButton(onClick = {
                 coroutine.launch {
