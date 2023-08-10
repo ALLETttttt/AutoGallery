@@ -30,10 +30,11 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.carcatalogue.R
 import com.example.carcatalogue.ui.theme.mycolor
+import com.example.carcatalogue.utils.DrawerEvents
 
 
 @Composable
-fun DrawerMenu() {
+fun DrawerMenu(onEvent: (DrawerEvents) -> Unit) {
     Box(modifier = Modifier.fillMaxWidth(0.85f)) {
         Image(
             painter = painterResource(id = R.drawable.menu_bg),
@@ -45,7 +46,9 @@ fun DrawerMenu() {
         )
         Column(modifier = Modifier.fillMaxSize()) {
             Header()
-            Body()
+            Body() { event ->
+                onEvent(event)
+            }
         }
     }
 }
@@ -86,7 +89,7 @@ fun Header() {
 }
 
 @Composable
-fun Body() {
+fun Body(onEvent: (DrawerEvents) -> Unit) {
     val list = stringArrayResource(id = R.array.drawer_list)
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         itemsIndexed(list) { index, title ->
@@ -103,7 +106,7 @@ fun Body() {
                     modifier = Modifier
                         .fillMaxWidth()
                         .clickable {
-
+                            onEvent(DrawerEvents.OnItemClick(title, index))
                         }
                         .padding(10.dp)
                         .wrapContentWidth(),

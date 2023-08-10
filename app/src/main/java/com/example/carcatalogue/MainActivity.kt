@@ -13,9 +13,12 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import com.example.carcatalogue.ui.theme.CarCatalogueTheme
 import com.example.carcatalogue.ui_components.DrawerMenu
 import com.example.carcatalogue.ui_components.MainTopBar
+import com.example.carcatalogue.utils.DrawerEvents
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -24,6 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+            val coroutineScope = rememberCoroutineScope()
             val topBarTitle = remember {
                 mutableStateOf("Audi")
             }
@@ -31,7 +35,16 @@ class MainActivity : ComponentActivity() {
                 ModalNavigationDrawer(
                     drawerState = drawerState,
                     drawerContent = {
-                        DrawerMenu()
+                        DrawerMenu() { event ->
+                            when(event) {
+                                is DrawerEvents.OnItemClick -> {
+                                    topBarTitle.value = event.title
+                                }
+                            }
+                            coroutineScope.launch {
+                                drawerState.close()
+                            }
+                        }
                     }
                 ) {
                     Scaffold(
