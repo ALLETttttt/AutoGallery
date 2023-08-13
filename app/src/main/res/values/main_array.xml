@@ -8,4 +8,29 @@
          <item>Rolls Royce</item>
          <item>Bentley</item>
      </string-array>
+
+    <string-array name="porsche">
+        <item>Porsche Taycan|porschetaycan.webp</item>
+        <item>Porsche Turbo S|porschetaycan2.png</item>
+    </string-array>
+
+    <string-array name="bmw">
+        <item>BMW M5|bmwm5.jpeg</item>
+    </string-array>
+
+    <string-array name="lamborghini">
+        <item>Lamborghini Huracan|lambohuracan.jpeg</item>
+    </string-array>
+
+    <string-array name="mercedes">
+        <item>Mercedes S class|mercsclass.png</item>
+    </string-array>
+
+    <string-array name="rr">
+        <item>Rolls Royce Coupe|rrcoupe.jpeg</item>
+    </string-array>
+
+    <string-array name="bentley">
+        <item>Bentley|bentley.webp</item>
+    </string-array>
 </resources>
