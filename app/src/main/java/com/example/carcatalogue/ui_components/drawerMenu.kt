@@ -40,8 +40,7 @@ fun DrawerMenu(onEvent: (DrawerEvents) -> Unit) {
             painter = painterResource(id = R.drawable.menu_bg),
             contentDescription = "menu_bg",
             modifier = Modifier
-                .fillMaxSize()
-                .alpha(0.7f),
+                .fillMaxSize(),
             contentScale = ContentScale.Crop
         )
         Column(modifier = Modifier.fillMaxSize()) {
