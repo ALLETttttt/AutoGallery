@@ -114,7 +114,6 @@ fun Body(onEvent: (DrawerEvents) -> Unit) {
                     color = Color.White
                 )
             }
-
         }
     }
 }
