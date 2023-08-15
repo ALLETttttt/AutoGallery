@@ -47,7 +47,11 @@ fun MainListItem(item: ListItem, onClick: (ListItem) -> Unit) {
                 .fillMaxSize(),
             contentAlignment = Alignment.BottomCenter
         ) {
-            AssetImage(imageName = item.imageName, content = item.title)
+            AssetImage(
+                imageName = item.imageName,
+                content = item.title,
+                modifier = Modifier.fillMaxSize()
+            )
             Text(
                 text = item.title,
                 modifier = Modifier
@@ -63,7 +67,7 @@ fun MainListItem(item: ListItem, onClick: (ListItem) -> Unit) {
 }
 
 @Composable
-fun AssetImage(imageName: String, content: String) {
+fun AssetImage(imageName: String, content: String, modifier: Modifier) {
 //    val input = LocalContext.current.assets.open(imageName)
     val context = LocalContext.current
     val assetManager = context.assets
@@ -73,6 +77,6 @@ fun AssetImage(imageName: String, content: String) {
         bitmap = bitmap.asImageBitmap(),
         contentDescription = content,
         contentScale = ContentScale.Crop,
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier
     )
 }
