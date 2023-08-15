@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,12 +30,15 @@ import com.example.carcatalogue.utils.ListItem
 
 
 @Composable
-fun MainListItem(item: ListItem) {
+fun MainListItem(item: ListItem, onClick: (ListItem) -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(250.dp)
-            .padding(13.dp),
+            .padding(13.dp)
+            .clickable {
+                onClick(item)
+            },
         shape = RoundedCornerShape(13.dp),
         border = BorderStroke(1.dp, mycolor)
     ) {

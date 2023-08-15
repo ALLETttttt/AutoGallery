@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainScreen(context: Context) {
+fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
     val mainList = remember {
@@ -62,7 +62,9 @@ fun MainScreen(context: Context) {
                     .padding(top = 55.dp)
             ) {
                 items(mainList.value) {
-                    MainListItem(item = it)
+                    MainListItem(item = it) { listItem ->
+                        onClick(listItem)
+                    }
                 }
             }
         }
