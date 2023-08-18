@@ -77,7 +77,7 @@ private fun getListItemsByIndex(index: Int, context: Context): List<ListItem> {
     arraylist.forEach { item ->
         val itemArr = item.split("|")
         list.add(
-            ListItem(itemArr[0], itemArr[1])
+            ListItem(itemArr[0], itemArr[1], itemArr[2])
         )
     }
     return list
