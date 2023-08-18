@@ -7,6 +7,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.carcatalogue.ui.theme.CarCatalogueTheme
+import com.example.carcatalogue.ui_components.InfoScreen
 import com.example.carcatalogue.ui_components.MainScreen
 import com.example.carcatalogue.utils.ListItem
 import com.example.carcatalogue.utils.Routes
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable(Routes.INFO_SCREEN) {
-
+                        item?.let { it1 -> InfoScreen(item = it1) }
                     }
                 }
             }

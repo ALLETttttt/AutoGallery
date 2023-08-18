@@ -10,27 +10,27 @@
      </string-array>
 
     <string-array name="porsche">
-        <item>Porsche Taycan|porschetaycan.webp</item>
-        <item>Porsche Turbo S|porschetaycan2.png</item>
+        <item>Porsche Taycan|porschetaycan.webp|taycan.html</item>
+        <item>Porsche Turbo S|porschetaycan2.png|taycan.html</item>
     </string-array>
 
     <string-array name="bmw">
-        <item>BMW M5|bmwm5.jpeg</item>
+        <item>BMW M5|bmwm5.jpeg|taycan.html</item>
     </string-array>
 
     <string-array name="lamborghini">
-        <item>Lamborghini Huracan|lambohuracan.jpeg</item>
+        <item>Lamborghini Huracan|lambohuracan.jpeg|taycan.html</item>
     </string-array>
 
     <string-array name="mercedes">
-        <item>Mercedes S class|mercsclass.png</item>
+        <item>Mercedes S class|mercsclass.png|taycan.html</item>
     </string-array>
 
     <string-array name="rr">
-        <item>Rolls Royce Coupe|rrcoupe.jpeg</item>
+        <item>Rolls Royce Coupe|rrcoupe.jpeg|taycan.html</item>
     </string-array>
 
     <string-array name="bentley">
-        <item>Bentley|bentley.webp</item>
+        <item>Bentley|bentley.webp|taycan.html</item>
     </string-array>
 </resources>
