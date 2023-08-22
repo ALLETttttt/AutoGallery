@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable(Routes.INFO_SCREEN) {
-                        item?.let { it1 -> InfoScreen(item = it1) }
+                        InfoScreen(item = item!!)
                     }
                 }
             }
