@@ -10,8 +10,8 @@
      </string-array>
 
     <string-array name="porsche">
-        <item>Porsche Taycan|porschetaycan.webp|https://en.wikipedia.org/wiki/Porsche_Taycan#:~:text=The%20Porsche%20Taycan,.%5B9%5D</item>
-        <item>Porsche Turbo S|porschetaycan2.png|taycan.html</item>
+        <item>Porsche Taycan|porschetaycan.webp|https://en.wikipedia.org/wiki/Porsche_Taycan</item>
+        <item>Porsche Turbo S|porschetaycan2.png|https://en.wikipedia.org/wiki/Porsche_911</item>
     </string-array>
 
     <string-array name="bmw">

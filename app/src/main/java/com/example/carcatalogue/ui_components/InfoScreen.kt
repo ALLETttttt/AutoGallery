@@ -13,7 +13,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import com.example.carcatalogue.utils.ListItem
@@ -38,13 +37,13 @@ fun InfoScreen(item: ListItem) {
                     .fillMaxWidth()
                     .height(200.dp)
             )
-            HtmlLoader(htmlName = item.htmlName)
+            UrlLoader(url = item.url)
         }
     }
 }
 
 @Composable
-fun HtmlLoader(htmlName: String) {
+fun UrlLoader(url: String) {
     AndroidView(
         modifier = Modifier
             .fillMaxWidth()
@@ -52,7 +51,7 @@ fun HtmlLoader(htmlName: String) {
         factory = {
             WebView(it).apply {
                 webViewClient = WebViewClient()
-                loadUrl(htmlName)
+                loadUrl(url)
             }
         })
 }
