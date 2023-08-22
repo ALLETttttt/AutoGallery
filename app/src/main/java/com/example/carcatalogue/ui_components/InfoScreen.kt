@@ -9,9 +9,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
-import androidx.compose.material3.Text
+import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -25,7 +26,7 @@ fun InfoScreen(item: ListItem) {
             .fillMaxSize()
             .padding(5.dp),
         shape = RoundedCornerShape(10.dp),
-//        colors = CardDefaults.cardColors(Color.White)
+        colors = CardDefaults.cardColors(Color.White)
     ) {
         Column(
             modifier = Modifier.fillMaxSize()
@@ -38,27 +39,20 @@ fun InfoScreen(item: ListItem) {
                     .height(200.dp)
             )
             HtmlLoader(htmlName = item.htmlName)
-            Text(text = "saqwdqwdqwdhwqbciqbvqiwvbqivbqeibv")
-            Text(text = "saqwdqwdqwdhwqbciqbvqiwvbqivbqeibv")
-            Text(text = "saqwdqwdqwdhwqbciqbvqiwvbqivbqeibv")
         }
     }
 }
 
 @Composable
 fun HtmlLoader(htmlName: String) {
-    val context = LocalContext.current
-    val manager = context.assets
-    val inputStream = manager.open("html/$htmlName")
-    val size = inputStream.available()
-    val buffer = ByteArray(size)
-    inputStream.read(buffer)
-    val htmlString = String(buffer)
-
-    AndroidView(factory = {
-        WebView(it).apply {
-            webViewClient = WebViewClient()
-            loadData(htmlString, "text/html", "utf-8")
-        }
-    })
+    AndroidView(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        factory = {
+            WebView(it).apply {
+                webViewClient = WebViewClient()
+                loadUrl(htmlName)
+            }
+        })
 }

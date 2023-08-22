@@ -44,7 +44,6 @@ fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
                         topBarTitle.value = event.title
                         mainList.value = getListItemsByIndex(event.index, context = context)
                     }
-
                 }
                 coroutineScope.launch {
                     drawerState.close()
