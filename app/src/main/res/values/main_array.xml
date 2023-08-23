@@ -12,25 +12,29 @@
     <string-array name="porsche">
         <item>Porsche Taycan|porschetaycan.webp|https://en.wikipedia.org/wiki/Porsche_Taycan</item>
         <item>Porsche Turbo S|porschetaycan2.png|https://en.wikipedia.org/wiki/Porsche_911</item>
+        <item>Porsche Cayenne|porsche_cayenne_1131817.jpeg|https://en.wikipedia.org/wiki/Porsche_Cayenne</item>
     </string-array>
 
     <string-array name="bmw">
-        <item>BMW M5|bmwm5.jpeg|taycan.html</item>
+        <item>BMW M5|bmwm5.jpeg|https://en.wikipedia.org/wiki/BMW_M5</item>
     </string-array>
 
     <string-array name="lamborghini">
-        <item>Lamborghini Huracan|lambohuracan.jpeg|taycan.html</item>
+        <item>Lamborghini Huracan|lambohuracan.jpeg|https://en.wikipedia.org/wiki/Lamborghini_Hurac%C3%A1n</item>
+        <item>Lamborghini Urus|lamborghini_urus_773129.jpeg|https://www.lamborghini.com/en-en/models/urus</item>
+        <item>Lamborghini Aventador|aven_gate_s_01_m.webp|https://www.lamborghini.com/en-en/models/aventador</item>
+        <item>Lamborghini Reventon|foto-reventon_05-650x433.jpeg|https://www.lamborghini.com/en-en/history/reventon</item>
     </string-array>
 
     <string-array name="mercedes">
-        <item>Mercedes S class|mercsclass.png|taycan.html</item>
+        <item>Mercedes S class|mercsclass.png|https://en.wikipedia.org/wiki/Mercedes-Benz_S-Class</item>
     </string-array>
 
     <string-array name="rr">
-        <item>Rolls Royce Coupe|rrcoupe.jpeg|taycan.html</item>
+        <item>Rolls Royce Coupe|rrcoupe.jpeg|https://en.wikipedia.org/wiki/Rolls-Royce_Phantom_Coup%C3%A9</item>
     </string-array>
 
     <string-array name="bentley">
-        <item>Bentley|bentley.webp|taycan.html</item>
+        <item>Bentley Continental GT|bentley.webp|https://en.wikipedia.org/wiki/Bentley_Continental_GT</item>
     </string-array>
 </resources>
