@@ -2,6 +2,7 @@ package com.example.carcatalogue.ui_components
 
 import android.annotation.SuppressLint
 import android.content.Context
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,7 +17,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.example.carcatalogue.R
 import com.example.carcatalogue.utils.DrawerEvents
 import com.example.carcatalogue.utils.ListItem
 import com.example.carcatalogue.utils.idArrayList
@@ -27,6 +31,7 @@ import kotlinx.coroutines.launch
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
+
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
     val mainList = remember {
@@ -35,6 +40,7 @@ fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
     val topBarTitle = remember {
         mutableStateOf("Porsche")
     }
+
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -56,6 +62,12 @@ fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
                 MainTopBar(title = topBarTitle.value, drawerState)
             },
         ) {
+            Image(
+                painter = painterResource(id = R.drawable.bg1),
+                contentDescription = "background",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.FillBounds
+            )
             LazyColumn(
                 modifier = Modifier
                     .fillMaxSize()
