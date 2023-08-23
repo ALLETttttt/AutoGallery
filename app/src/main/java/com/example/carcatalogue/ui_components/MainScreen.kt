@@ -63,7 +63,7 @@ fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
             },
         ) {
             Image(
-                painter = painterResource(id = R.drawable.bg1),
+                painter = painterResource(id = R.drawable.bg),
                 contentDescription = "background",
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.FillBounds
