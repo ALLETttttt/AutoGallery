@@ -9,4 +9,5 @@ import com.example.carcatalogue.utils.ListItem
     version = 1
 )
 abstract class MainDb: RoomDatabase() {
+    abstract val dao: Dao
 }
