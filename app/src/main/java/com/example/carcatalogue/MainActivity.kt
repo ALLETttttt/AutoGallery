@@ -18,7 +18,10 @@ import com.example.carcatalogue.ui_components.InfoScreen
 import com.example.carcatalogue.ui_components.MainScreen
 import com.example.carcatalogue.utils.ListItem
 import com.example.carcatalogue.utils.Routes
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
