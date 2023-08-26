@@ -1,7 +1,6 @@
 package com.example.carcatalogue.ui_components
 
 import android.annotation.SuppressLint
-import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -20,26 +19,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.carcatalogue.MainViewModule
 import com.example.carcatalogue.R
 import com.example.carcatalogue.utils.DrawerEvents
 import com.example.carcatalogue.utils.ListItem
-import com.example.carcatalogue.utils.idArrayList
 import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
+fun MainScreen(
+    mainViewModule: MainViewModule = hiltViewModel(),
+    onClick: (ListItem) -> Unit
+) {
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
-    val mainList = remember {
-        mutableStateOf(getListItemsByIndex(0, context))
-    }
+    val mainList = mainViewModule.mainList
     val topBarTitle = remember {
         mutableStateOf("Porsche")
     }
+    mainViewModule.getAllItemsByCategory(topBarTitle.value)
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -48,7 +50,7 @@ fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
                 when(event) {
                     is DrawerEvents.OnItemClick -> {
                         topBarTitle.value = event.title
-                        mainList.value = getListItemsByIndex(event.index, context = context)
+                        mainViewModule.getAllItemsByCategory(event.title)
                     }
                 }
                 coroutineScope.launch {
@@ -83,14 +85,3 @@ fun MainScreen(context: Context, onClick: (ListItem) -> Unit) {
     }
 }
 
-private fun getListItemsByIndex(index: Int, context: Context): List<ListItem> {
-    val list = ArrayList<ListItem>()
-    val arraylist = context.resources.getStringArray(idArrayList.listId[index])
-    arraylist.forEach { item ->
-        val itemArr = item.split("|")
-        list.add(
-            ListItem(itemArr[0], itemArr[1], itemArr[2])
-        )
-    }
-    return list
-}

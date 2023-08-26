@@ -12,5 +12,5 @@ data class ListItem(
     val imageName: String,
     val url: String,
     val category: String,
-    val ifFav: Boolean
+    val isFav: Boolean
 )

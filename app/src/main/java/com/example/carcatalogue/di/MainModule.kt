@@ -20,7 +20,7 @@ object MainModule {
         return Room.databaseBuilder(
             app,
             MainDb::class.java,
-            "info.db"
-        ).createFromAsset("db/info.db").build()
+            "test.db"
+        ).createFromAsset("db/test.db").build()
     }
 }

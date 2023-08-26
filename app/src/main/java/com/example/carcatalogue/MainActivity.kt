@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                 ) {
 
                     composable(Routes.MAIN_SCREEN) {
-                        MainScreen(context = this@MainActivity) {
+                        MainScreen {
                             item = it
                             navController.navigate(Routes.INFO_SCREEN)
                         }
