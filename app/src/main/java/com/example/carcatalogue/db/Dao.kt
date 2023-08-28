@@ -21,6 +21,6 @@ interface Dao {
     fun getListItemByCategory(cat: String): Flow<List<ListItem>>
 
     @Query("SELECT * FROM main WHERE isFav = 1")
-    fun getFavourites(cat: String): Flow<List<ListItem>>
+    fun getFavourites(): Flow<List<ListItem>>
 
 }

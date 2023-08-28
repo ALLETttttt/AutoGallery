@@ -17,13 +17,20 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.carcatalogue.MainViewModule
 import com.example.carcatalogue.ui.theme.mycolor
 import kotlinx.coroutines.launch
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTopBar(title: String, drawerState: DrawerState) {
+fun MainTopBar(
+    title: String,
+    drawerState: DrawerState,
+    mainViewModule: MainViewModule = hiltViewModel(),
+    onFavClick: () -> Unit
+) {
     val coroutine = rememberCoroutineScope()
     TopAppBar(
         title = {
@@ -45,7 +52,8 @@ fun MainTopBar(title: String, drawerState: DrawerState) {
         },
         actions = {
             IconButton(onClick = {
-
+                mainViewModule.getFavourites()
+                onFavClick()
             }) {
                 Icon(imageVector = Icons.Default.Favorite, contentDescription = "favourite")
             }

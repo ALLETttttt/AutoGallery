@@ -30,13 +30,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.carcatalogue.MainViewModule
+import com.example.carcatalogue.ui.theme.Gray
 import com.example.carcatalogue.ui.theme.itembg
 import com.example.carcatalogue.ui.theme.mycolor
 import com.example.carcatalogue.utils.ListItem
 
 
 @Composable
-fun MainListItem(item: ListItem, onClick: (ListItem) -> Unit) {
+fun MainListItem(
+    mainViewModule: MainViewModule = hiltViewModel(),
+    item: ListItem, onClick: (ListItem) -> Unit
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -82,7 +88,11 @@ fun MainListItem(item: ListItem, onClick: (ListItem) -> Unit) {
                 color = Color.White
             )
             IconButton(
-                onClick = { /*TODO*/ },
+                onClick = {
+                          mainViewModule.insertItem(
+                              item.copy(isFav = !item.isFav)
+                          )
+                },
                 modifier = Modifier.constrainAs(favourite) {
                     top.linkTo(parent.top)
                     end.linkTo(parent.end)
@@ -94,7 +104,8 @@ fun MainListItem(item: ListItem, onClick: (ListItem) -> Unit) {
                     modifier = Modifier
                         .clip(CircleShape)
                         .background(itembg)
-                        .padding(6.dp)
+                        .padding(6.dp),
+                    tint = if (item.isFav) Color.Red else Gray
                 )
             }
         }

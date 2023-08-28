@@ -12,6 +12,7 @@ import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -41,7 +42,9 @@ fun MainScreen(
     val topBarTitle = remember {
         mutableStateOf("Porsche")
     }
-    mainViewModule.getAllItemsByCategory(topBarTitle.value)
+    LaunchedEffect(Unit) {
+        mainViewModule.getAllItemsByCategory(topBarTitle.value)
+    }
 
     ModalNavigationDrawer(
         drawerState = drawerState,
@@ -61,7 +64,9 @@ fun MainScreen(
     ) {
         Scaffold(
             topBar = {
-                MainTopBar(title = topBarTitle.value, drawerState)
+                MainTopBar(title = topBarTitle.value, drawerState) {
+                    topBarTitle.value = "Favourites"
+                }
             },
         ) {
             Image(
