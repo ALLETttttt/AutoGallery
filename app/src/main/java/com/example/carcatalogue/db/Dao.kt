@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.carcatalogue.utils.ListItem
+import kotlinx.coroutines.flow.Flow
 
 
 @Dao
@@ -17,6 +18,9 @@ interface Dao {
     suspend fun deleteItem(item: ListItem)
 
     @Query("SELECT * FROM main WHERE category LIKE:cat")
-    suspend fun getListItemByCategory(cat: String): List<ListItem>
+    fun getListItemByCategory(cat: String): Flow<List<ListItem>>
+
+    @Query("SELECT * FROM main WHERE isFav = 1")
+    fun getFavourites(cat: String): Flow<List<ListItem>>
 
 }

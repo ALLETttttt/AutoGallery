@@ -52,6 +52,11 @@ android {
 }
 
 dependencies {
+//    ConstraintLayout
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+
+
+
 //    Dagger hilt
     implementation("com.google.dagger:hilt-android:2.46.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
